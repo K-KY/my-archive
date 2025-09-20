@@ -14,7 +14,7 @@ const HlsPlayer: React.FC<HlsPlayerProps> = ({
                                                  src,
                                                  autoPlay = true,
                                                  controls = true,
-                                                 muted = true, // 모바일 자동재생 이슈 대비
+                                                 // muted = false, // 모바일 자동재생 이슈 대비
                                                  poster,
                                                  className,
                                              }) => {
@@ -87,7 +87,7 @@ const HlsPlayer: React.FC<HlsPlayerProps> = ({
             ref={videoRef}
             className={className}
             controls={controls}
-            muted={muted}
+            // muted={muted}
             poster={poster}
             playsInline
             // preload="auto" // 필요 시
