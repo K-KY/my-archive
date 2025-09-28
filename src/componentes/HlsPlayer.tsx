@@ -82,6 +82,7 @@ const HlsPlayer: React.FC<HlsPlayerProps> = ({
         };
     }, [src, autoPlay]);
 
+
     return (
         <video
             ref={videoRef}
@@ -91,7 +92,7 @@ const HlsPlayer: React.FC<HlsPlayerProps> = ({
             poster={poster}
             playsInline
             // preload="auto" // 필요 시
-            style={{ width: '100%', maxWidth: 960 }} // 크기 조절 -> 영상이 기본 해상도에 맞춰져서 렌더링 되버림
+            style={{height: '540px', width: '100%', maxWidth: 960 }} // 크기 조절 -> 영상이 기본 해상도에 맞춰져서 렌더링 되버림
         />
     );
 };
