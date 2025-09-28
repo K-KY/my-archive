@@ -1,10 +1,18 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
+import {StrictMode} from 'react'
+import {createRoot} from 'react-dom/client'
 import './index.css'
 import App from './App.tsx'
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import MovieDetail from "./componentes/MovieDetail.tsx";
 
 createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
+    <BrowserRouter>
+        <StrictMode>
+            <Routes>
+                <Route path="/movie" element={<MovieDetail/>}></Route>
+                <Route path={"/"} element={<App/>}/>
+            </Routes>
+        </StrictMode>
+    </BrowserRouter>
+    ,
 )
