@@ -1,21 +1,40 @@
 import './App.css'
-import HlsPlayer from "./componentes/HlsPlayer.tsx";
+import {useEffect, useState} from "react";
+import {getDirs} from "./axios/videoList.ts";
+import {useNavigate} from "react-router-dom";
+
 
 function App() {
 
-  return (
-    <>
-      <div style={{ padding: 16 }}>
-        <HlsPlayer
-            src="http://localhost:8080/prometheus-grafana/hls/output.m3u8" // nginx 등에서 서빙 중인 m3u8 경로
-            autoPlay
-            controls
-            muted
-        />
-      </div>
+    const navigate = useNavigate();
+    // const defaultLoc = HLS_URL + "/prometheus-grafana/hls/1/output.m3u8";
+    const [dirList, setDirList] = useState([]);
 
-    </>
-  )
+
+    useEffect(() => {
+        getDirs().then(data => {
+            if (data != null) {
+                setDirList(data.data)
+            }
+        })
+    }, [])
+
+    const handleMovieClick = (movie: { movie:string }) => {
+        navigate('/movie', {state: {movie: {movie}}});
+    };
+
+    return (
+        <>
+            <b>dirs</b>
+            {dirList.map((movie) => (
+                <div>
+                    <a onClick={() => handleMovieClick(movie)} key={movie}>
+                        {movie}
+                    </a>
+                </div>
+            ))}
+        </>
+    )
 }
 
 export default App
