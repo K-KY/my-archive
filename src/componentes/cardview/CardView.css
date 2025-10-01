@@ -1,0 +1,17 @@
+.card {
+    background-color: hotpink;
+    width: 250px;
+    height: 200px;
+    cursor: pointer;
+}
+
+.card:hover {
+    transition-duration: 0.2s;
+    background-color: aquamarine;
+}
+
+.card-title {
+    width:100%;
+    text-align:center;
+    background-color: burlywood;
+}
