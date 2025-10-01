@@ -1,5 +1,6 @@
 .card {
     background-color: hotpink;
+    margin: 25px;
     width: 250px;
     height: 200px;
     cursor: pointer;

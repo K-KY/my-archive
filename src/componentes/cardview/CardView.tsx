@@ -5,6 +5,7 @@ interface CardViewProps {
     title: string;
     image: string;
 }
+
 const CardView = (prop:CardViewProps) => {
     return (
         <div className="card">
@@ -23,7 +24,7 @@ const CardView = (prop:CardViewProps) => {
 
 const ImageViewer = ({img}:{img:string}) => {
     return (
-        <div className="card">
+        <div>
             <div>
                 <img src={img} alt=""/>
             </div>
