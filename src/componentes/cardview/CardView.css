@@ -1,10 +1,17 @@
 .card {
+    display: inline-block;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
     background-color: hotpink;
-    margin: 25px;
-    width: 250px;
-    height: 200px;
-    cursor: pointer;
 }
+
+.card img {
+    display: block;
+    max-width: 100%; /* 카드 안넘치게 */
+    height: auto;    /* 비율 유지 */
+}
+
 
 .card:hover {
     transition-duration: 0.2s;
