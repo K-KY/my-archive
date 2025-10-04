@@ -2,6 +2,7 @@ import {useNavigate} from "react-router-dom";
 import {useEffect, useState} from "react";
 import {getDirs} from "../axios/videoList.ts";
 import MovieItem from "./MovieItem.tsx";
+import "./MovieBoard.css"
 
 
 
@@ -24,17 +25,16 @@ const MovieBoard = () => {
     };
 
     return (
-        <>
-            <>
-                {dirList.map((movie) => (
-                    <div>
-                        <MovieItem onClick={() => handleMovieClick(movie)} title={movie} image={"test.png"}></MovieItem>
-
-                    </div>
-                ))}
-            </>
-
-        </>
+        <div className="movie-container">
+            {dirList.map((movie) => (
+                <MovieItem
+                    key={movie}
+                    onClick={() => handleMovieClick(movie)}
+                    title={movie}
+                    image={"test.png"}
+                />
+            ))}
+        </div>
     )
 }
 
