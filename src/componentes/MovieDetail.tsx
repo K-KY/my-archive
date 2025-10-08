@@ -4,6 +4,7 @@ import {getDir} from "../axios/videoList.ts";
 import VideoPart from "./VideoPart.tsx";
 import HlsPlayer from "./HlsPlayer.tsx";
 import {HLS_URL} from "../constants.ts";
+import "./MovieDetail.css"
 
 interface MovieDetailProps {
     movie: string;
@@ -50,26 +51,33 @@ const MovieDetail = () => {
             <p>{movie.movie}</p>
 
 
-            {parts?.map((part, index) => {
-                return (
-                    <VideoPart onClick={() => {
-                        setCurrentPart(part);
-                    }} part={part} key={index}/>
-                )
-            })}
+            <div style={{display: "flex", flexDirection: "row", height: "100%"}}>
 
+                {currentPart &&
+                    <div style={{padding: 16, width: "100%"}}>
+                        <HlsPlayer
+                            key={currentPart.name}
+                            src={`${HLS_URL}/${movie.movie}/hls/${currentPart.name}/output.m3u8`} // nginx 등에서 서빙 중인 m3u8 경로
+                            autoPlay
+                            controls
+                            muted
+                        />
+                    </div>
+                }
 
-            {currentPart &&
-                <div style={{padding: 16}}>
-                    <HlsPlayer
-                        key={currentPart.name}
-                        src={`${HLS_URL}/${movie.movie}/hls/${currentPart.name}/output.m3u8`} // nginx 등에서 서빙 중인 m3u8 경로
-                        autoPlay
-                        controls
-                        muted
-                    />
+                <div className={"part-side"}>
+                    {parts?.map((part, index) => (
+                        <div key={index} style={{ display: "flex", justifyContent: "flex-end" }}>
+                            <VideoPart
+                                onClick={() => setCurrentPart(part)}
+                                part={part}
+                            />
+                        </div>
+                    ))}
                 </div>
-            }
+            </div>
+
+
 
 
         </>

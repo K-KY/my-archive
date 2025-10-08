@@ -1,0 +1,12 @@
+.part-side {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 3vw;
+    overflow-y: auto;         // 리스트가 길면 스크롤 가능
+    boxShadow: 0 0 10px rgba(0,0,0,0.5) // 살짝 그림자 효과
+}
