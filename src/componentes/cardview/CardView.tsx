@@ -1,35 +1,37 @@
-import "./CardView.css"
-
+import { Card, CardMedia, CardContent, Typography } from '@mui/material';
 
 interface CardViewProps {
-    title: string;
-    image: string;
+    title?: string;
+    image?: string;
+    children?: React.ReactNode;
 }
 
-const CardView = (prop:CardViewProps) => {
+const CardView: React.FC<CardViewProps> = ({ title, image, children }) => {
     return (
-        <div className="card">
-            <div>
-                <ImageViewer img={prop.image}></ImageViewer>
-            </div>
-
-            <div className={"card-title"}>
-                <div>
-                    <p>{prop.title}</p>
-                </div>
-            </div>
-        </div>
-    )
-}
-
-const ImageViewer = ({img}:{img:string}) => {
-    return (
-        <div>
-            <div>
-                <img src={img} alt=""/>
-            </div>
-        </div>
-    )
-}
+        <Card sx={{ maxWidth: 345, borderRadius: 3, boxShadow: 3 }}>
+            {image && (
+                <CardMedia
+                    component="img"
+                    height="160"
+                    image={image}
+                    alt={title}
+                />
+            )}
+            <CardContent>
+                {title && (
+                    <Typography gutterBottom variant="h6" component="div">
+                        {title}
+                    </Typography>
+                )}
+                {children && (
+                    <Typography variant="body2" color="text.secondary">
+                        {children}
+                    </Typography>
+                )}
+            </CardContent>
+        </Card>
+    );
+};
 
 export default CardView;
+
