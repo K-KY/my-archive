@@ -1,10 +1,10 @@
-.movie-container {
+.movie-board {
     display: flex;
     flex-wrap: wrap;       /* 줄이 넘어가면 자동으로 다음 줄로 */
     gap: 16px;             /* 카드 사이 간격 */
-    justify-content: flex-start; /* 왼쪽 정렬 (center로 바꾸면 가운데 정렬) */
+    justify-content: center; /* 왼쪽 정렬 (center로 바꾸면 가운데 정렬) */
 }
 
-.movie-container > * {
+.movie-board > * {
     flex: 0 0 auto;        /* 아이템 크기를 고정 */
 }

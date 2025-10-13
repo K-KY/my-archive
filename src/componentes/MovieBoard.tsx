@@ -25,7 +25,7 @@ const MovieBoard = () => {
     };
 
     return (
-        <div className="movie-container">
+        <div className="movie-board">
             {dirList.map((movie) => (
                 <MovieItem
                     key={movie}
