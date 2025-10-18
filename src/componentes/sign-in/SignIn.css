@@ -1,0 +1,171 @@
+/* SignIn.css - 간단하고 깔끔한 스타일 (연습용) */
+
+:root{
+    --bg: #f4f6f8;
+    --card: #ffffff;
+    --accent: #1976d2;
+    --muted: #6b7280;
+    --error: #d32f2f;
+}
+
+*{box-sizing: border-box;}
+body,html,#root{height:100%;}
+
+.signin-page{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(180deg, #eef2f7 0%, var(--bg) 100%);
+    padding: 24px;
+}
+
+.signin-card{
+    width: 380px;
+    background: var(--card);
+    border-radius: 12px;
+    padding: 22px;
+    box-shadow: 0 10px 30px rgba(16,24,40,0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.signin-title{
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+    color: #111827;
+    text-align: center;
+    margin-bottom: 6px;
+}
+
+.field{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.label-text{
+    font-size: 13px;
+    color: var(--muted);
+}
+
+.input{
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid #e6e9ee;
+    outline: none;
+    font-size: 14px;
+    transition: box-shadow .12s, border-color .12s;
+}
+
+.input:focus{
+    border-color: var(--accent);
+    box-shadow: 0 4px 10px rgba(25,118,210,0.08);
+}
+
+.password-row{
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.pw-toggle{
+    background: transparent;
+    border: none;
+    font-size: 13px;
+    color: var(--accent);
+    cursor: pointer;
+    padding: 6px 8px;
+    border-radius: 8px;
+    width: 60px;
+}
+
+.row.between{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.remember{
+    display:flex;
+    gap:8px;
+    align-items:center;
+    font-size:13px;
+    color:var(--muted);
+}
+
+.link{
+    background: none;
+    border: none;
+    color: var(--accent);
+    cursor: pointer;
+    font-size: 13px;
+    padding: 6px;
+}
+
+.error{
+    color: var(--error);
+    background: rgba(211,47,47,0.06);
+    padding: 8px 10px;
+    border-radius: 8px;
+    font-size: 13px;
+}
+
+.submit{
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: none;
+    background: var(--accent);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 15px;
+    box-shadow: 0 6px 18px rgba(25,118,210,0.12);
+}
+
+.submit:disabled{
+    opacity: 0.7;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.divider{
+    text-align: center;
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 6px;
+}
+
+.socials{
+    display:flex;
+    gap:8px;
+    flex-direction:column;
+}
+
+.social{
+    padding: 8px 10px;
+    border-radius: 8px;
+    border: 1px solid #e6e9ee;
+    background: white;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.social.google{
+    color: #444;
+}
+.social.github{
+    color: #111;
+}
+
+.footer{
+    margin-top: 6px;
+    font-size: 13px;
+    color: var(--muted);
+    text-align: center;
+}
